@@ -6,4 +6,4 @@ ADD sshd_config /etc/ssh/
 RUN mkdir -p /share
 RUN mkdir -p /local
 
-VOLUME ["/home","/share", "/local", "/"]
+VOLUME ["/home","/share", "/local"]
