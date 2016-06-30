@@ -1,6 +1,7 @@
 FROM factual/docker-cdh5-dev
 
 RUN rm -f /etc/service/sshd/down
+RUN /etc/my_init.d/00_regen_ssh_host_keys.sh
 ADD sshd_config /etc/ssh/
 
 RUN mkdir -p /share
