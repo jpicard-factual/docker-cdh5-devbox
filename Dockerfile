@@ -7,9 +7,14 @@ ADD sshd_config /etc/ssh/
 RUN mkdir -p /share
 RUN mkdir -p /local
 
+RUN apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+RUN echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" >> /etc/apt/sources.list.d/docker.list
 
 RUN apt-get update
-RUN apt-get install -y byobu
+RUN apt-get install -y byobu docker-engine
+
+RUN mkdir -p /etc/service/docker
+ADD docker.sh /etc/service/docker/run
 
 #cleanup
 RUN apt-get clean
