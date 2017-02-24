@@ -18,7 +18,6 @@ ADD docker.sh /etc/service/docker/run
 # Jeff's additions:
 RUN apt-get dist-upgrade -y
 RUN apt-get install -y jq
-RUN source /home/jpicard/venv/bin/activate'
 RUN python -m pip install --upgrade pip
 RUN pip install --user numpy scipy matplotlib ipython pandas sympy nose
 RUN pip install green
