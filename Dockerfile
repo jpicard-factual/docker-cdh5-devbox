@@ -15,6 +15,9 @@ RUN apt-get update && apt-get install -y byobu docker-engine python3-pip bash-co
 RUN mkdir -p /etc/service/docker
 ADD docker.sh /etc/service/docker/run
 
+# Jeff's additions:
+RUN apt-get install jq
+
 #cleanup
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
