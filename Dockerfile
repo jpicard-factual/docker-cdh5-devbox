@@ -15,17 +15,16 @@ RUN apt-get update && apt-get install -y byobu docker-engine python3-pip bash-co
 RUN mkdir -p /etc/service/docker
 ADD docker.sh /etc/service/docker/run
 
-# Jeff's additions:
-RUN apt-get dist-upgrade -y
-RUN apt-get install -y jq
-RUN easy_install pip
-RUN python -m pip install --upgrade pip
-RUN pip install --user numpy scipy matplotlib ipython pandas sympy nose
-RUN pip install green
-RUN /home/jpicard/code/predict/predict-py/init.sh
-
 #cleanup
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 VOLUME ["/home","/share", "/local"]
+
+# Jeff's additions:
+RUN apt-get dist-upgrade -y
+RUN apt-get install -y jq
+RUN apt-get install python-pip
+RUN pip install --upgrade pip
+RUN source /home/jpicard/venv/bin/activate
+RUN /home/jpicard/code/predict/predict-py/init.sh
