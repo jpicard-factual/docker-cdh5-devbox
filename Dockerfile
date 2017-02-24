@@ -18,7 +18,7 @@ ADD docker.sh /etc/service/docker/run
 # Jeff's additions:
 RUN apt-get dist-upgrade -y
 RUN apt-get install -y jq
-RUN apt-get install -y pip
+RUN easy_install pip
 RUN python -m pip install --upgrade pip
 RUN pip install --user numpy scipy matplotlib ipython pandas sympy nose
 RUN pip install green
