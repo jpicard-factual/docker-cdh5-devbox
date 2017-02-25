@@ -18,7 +18,7 @@ ADD docker.sh /etc/service/docker/run
 # Jeff additions:
 RUN apt-get dist-upgrade -y
 RUN apt-get install -y jq
-RUN apt-get install python-pip
+RUN apt-get install -y python-pip
 RUN pip install --upgrade pip
 
 #cleanup
