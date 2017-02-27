@@ -28,5 +28,4 @@ RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 VOLUME ["/home","/share", "/local"]
 
 # Jeff's additions:
-RUN source /home/jpicard/venv/bin/activate
 RUN /home/jpicard/code/predict/predict-py/init.sh
